@@ -1,0 +1,19 @@
+body{
+	background-image: url("/static/ibg.jpg");
+	background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.description{
+	font-family: 'Concert One', cursive;
+	text-align: center;
+	color: white;
+	overflow: auto;
+	width: auto;
+	height: 200px;
+}
+
+::-webkit-scrollbar {
+display: none;
+}

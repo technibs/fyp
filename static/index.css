@@ -1,0 +1,30 @@
+body{
+	background-image: url("/static/ibg.jpg");
+	background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.appname, .description{
+	font-family: 'Concert One', cursive;
+	text-align: center;
+	color: white;
+}
+
+.iimg #img1{
+	width: 100%;
+	display: block;
+    margin: 0 auto;
+}
+
+.arrow{
+	text-align: center;
+}
+
+a{
+	color: white;
+}
+
+p{
+	color: black;
+}
