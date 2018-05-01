@@ -22,30 +22,24 @@ def handleUsr2(signum,frame):
     with open("static/data.json","w") as outfile:
         json.dump(data,outfile)
     print("Received signal",recv)
-def handleWinch(signum,frame):
-    global recv
-    recv=3
-    data={"value":recv}
-    with open("static/data.json","w") as outfile:
-        json.dump(data,outfile)
-    print("Received signal",recv)
     
 signal.signal(signal.SIGUSR1,handleUsr1)
 signal.signal(signal.SIGUSR2,handleUsr2)
-signal.signal(signal.SIGWINCH,handleWinch)
 
 @app.route("/")
 def main():
 	return render_template("index.html")
 
+@app.route("/aboutus")
+def about():
+	return render_template("au.html")
+
 @app.route("/bla")
 def disp():
     global recv
     if (recv==1):
-            return render_template("208.html")
-    elif(recv==2):
             return render_template("eclab.html")
-    elif(recv==3):
+    elif(recv==2):
             return render_template("hod.html")
     elif recv==0:
             return render_template("error.html")

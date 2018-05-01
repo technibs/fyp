@@ -14,8 +14,32 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
+<script>
+$(document).ready(function() {
+  $.ajaxSetup({ cache: false });
+});
+</script>
+<script>
+		var jq=$.noConflict();
+		var previous = null;
+    		var current = null;
+		function check()
+		{
+			setInterval(function(){
+				jq.getJSON('static/data.json?' + new Date().getTime(), function(json){
+					current=json.value;
+					console.log(current);
+					if (previous && current && previous !== current) {
+						console.log('refresh');
+						location.reload();
+			    		}
+		    			previous = current;
+				});
+			},2000);
+		}
+</script>
 
-    <body>
+    <body onload="check()">
         Erorrrrr!!!
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
